@@ -1,3 +1,9 @@
 .grid {
     display: grid;
+    min-height: 100vh;
+    grid-template-columns: 100%;
+    grid-template-rows: 20%;
+    grid-template-areas:
+        "header main"
+        "main main";
 }
