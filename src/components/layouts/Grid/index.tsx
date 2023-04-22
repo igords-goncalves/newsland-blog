@@ -1,8 +1,8 @@
 import '../../../global.scss';
 
 export interface GridProps {
-    direction?: 'row' | 'column';
-    justfy?: 'start' | 'end';
+    direction?: 'grid-template-row' | null;
+    justify?: 'center' | null;
     children?: React.ReactNode;
 }
 
