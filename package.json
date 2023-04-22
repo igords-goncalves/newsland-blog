@@ -31,5 +31,9 @@
         "prettier": "2.8.7",
         "typescript": "^5.0.2",
         "vite": "^4.3.0"
-    }
+    },
+    "main": "index.js",
+    "repository": "https://github.com/igords-goncalves/desafio-codelandia-1-blog.git",
+    "author": "Igor Gonçalves <igordossantos38@gmail.com>",
+    "license": "MIT"
 }
