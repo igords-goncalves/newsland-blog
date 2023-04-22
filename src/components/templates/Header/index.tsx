@@ -11,6 +11,7 @@ export const Header = (): JSX.Element => {
                 <input
                     type="text"
                     placeholder="Pesquise no blog"
+                    id="icon"
                     className="c-header__input"
                 />
             </div>
