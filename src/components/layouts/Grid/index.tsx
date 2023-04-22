@@ -7,5 +7,5 @@ export interface GridProps {
 }
 
 export const Grid = (props: GridProps) => {
-    return <div className="grid">{props.children}</div>;
+    return <div className="l-grid">{props.children}</div>;
 };
