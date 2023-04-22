@@ -1,1 +1,44 @@
+@import '../../../global.variables.scss';
 
+.c-header {
+    display: flex;
+    flex-direction: column;
+    @include gradient(320deg, $list-light);
+    width: 100%;
+    height: fit-content;
+
+    .u-header__container {
+        margin: 41px auto;
+    }
+
+    .u-header__flex {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 71px;
+    }
+
+    .c-header__logo, .c-header__title {
+        color: $color-text-dark;
+        font-family: $font-family;
+        font-size: 1.5em;
+        font-weight: 400;
+    }
+
+    .c-header__input {
+        width: 100%;
+        height: 65px;
+        background: rgba(255, 255, 255, 0.2);
+        color: $color-text-dark;
+        border: none;
+        font-family: $font-family;
+        font-size: 1.2em;
+        border-radius: 5px;
+        outline-color: $blue-light-left;
+
+        &::placeholder {
+            color: $color-text-dark;
+            opacity: 0.5;
+            font-weight: 300;
+        }
+    }
+}
