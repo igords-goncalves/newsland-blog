@@ -1,14 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 $background-light: #F3F5F7;
 $color-text-light: #1A202C;
+$color-text-light-secondary: #717171;
+$color-text-dark: #FFF;
+$blue-light-left: #574AE8;
+$blue-light-right:  #3EA1DB;
 
-$background-blue-light-left: #574AE8;
-$background-blue-light-right:  #3EA1DB;
-$degree: 88.27deg;
-$percent-left: 0%;
-$percent-right:  100%;
+$list-light: $blue-light-left 0%, $blue-light-right 100%;
 
-$background-blue-light: linear-gradient(
-    $degree,
-    $background-blue-light-left $percent-left,
-    $background-blue-light-right $percent-right
-);
+$direction: 88.27deg;
+
+@mixin gradient($direction, $list-light) {
+    background: -webkit-linear-gradient($direction, $list-light);
+}
+
+$font-family: 'Lexend Deca', sans-serif;

@@ -1,0 +1,21 @@
+@import '../../global.variables.scss';
+
+.c-card {
+    background-color: $color-text-dark;
+    box-shadow: 0px 0px 10px rgba(19, 19, 31, 0.05);
+    border-radius: 5px;
+    padding: 26px;
+    margin-top: 50px;
+
+    font-family: $font-family;
+
+    .c-card__title {
+        color: $color-text-light;
+        font-size: 1.6em;
+        margin: 22px 0 8px 0;
+    }
+    .c-card__date, .c-card__text {
+        color: $color-text-light-secondary;
+        font-size: 1.1em;
+    }
+}

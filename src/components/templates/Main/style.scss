@@ -1,0 +1,13 @@
+@import '../../../global.variables.scss';
+
+.c-main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    background: $background-light;
+
+    .c-main__container {
+        margin-top: 50px;
+    }
+}

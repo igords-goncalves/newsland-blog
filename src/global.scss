@@ -1,9 +1,19 @@
-.grid {
+.l-grid {
     display: grid;
     min-height: 100vh;
-    grid-template-columns: 100%;
-    grid-template-rows: 20%;
-    grid-template-areas:
-        "header main"
-        "main main";
+    grid-template-rows: auto 1fr;
+}
+
+.u-container {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    @media (max-width: 1280px) {
+        width: 90%;
+    }
+}
+
+.u-header__flex {
+    display: flex;
+    justify-content: space-between;
 }
