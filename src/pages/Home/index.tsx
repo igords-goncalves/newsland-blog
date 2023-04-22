@@ -1,9 +1,13 @@
+import { Grid } from '../../components/layouts/Grid';
+import { Header } from '../../components/templates/Header';
+import { Main } from '../../components/templates/Main';
 import './style.scss';
 
 export function Home() {
     return (
-        <div>
-            <h1>Hello World!</h1>
-        </div>
+        <Grid>
+            <Header />
+            <Main />
+        </Grid>
     );
 }
