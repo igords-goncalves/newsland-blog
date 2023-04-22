@@ -1,7 +1,16 @@
-export const Main = () => {
+import { Card } from '../../Card';
+import './style.scss';
+
+export const Main = (): JSX.Element => {
     return (
-        <main>
-            <h1>main</h1>
+        <main className="c-main">
+            <div className="u-container c-main__container">
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+                <Card />
+            </div>
         </main>
     );
 };
