@@ -18,4 +18,8 @@
         color: $color-text-light-secondary;
         font-size: 1.1em;
     }
+
+    .c-card__favorite {
+        cursor: pointer;
+    }
 }
