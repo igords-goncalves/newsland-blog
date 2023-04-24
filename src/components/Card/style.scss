@@ -10,9 +10,16 @@
     font-family: $font-family;
 
     .c-card__title {
+        width: fit-content;
         color: $color-text-light;
         font-size: 1.6em;
         margin: 22px 0 8px 0;
+        cursor: pointer;
+
+        &:hover {
+            color: $blue-light-left;
+            text-decoration: underline;
+        }
     }
     .c-card__date, .c-card__text {
         color: $color-text-light-secondary;
@@ -22,4 +29,65 @@
     .c-card__favorite {
         cursor: pointer;
     }
+}
+
+.c-popup {
+    width: 100%;
+    max-width: 1024px;
+    max-height: 700px;
+    background-color: $color-text-dark;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: fit-content;
+    overflow-y: scroll;
+    padding: 30px 60px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(19, 19, 31, 0.199);
+
+    &::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.103);
+        background-color: #F5F5F5;
+    }
+    &::-webkit-scrollbar {
+	    width: 10px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $blue-light-left;
+    }
+
+    font-family: $font-family;
+
+    .c-popup__title {
+        width: fit-content;
+        color: $blue-light-left;
+        font-size: 3.6em;
+        margin: 22px 0 30px 0;
+    }
+    .c-popup__close {
+        cursor: pointer;
+    }
+
+    .c-popup__date {
+        color: $color-text-light-secondary;
+        font-size: 1.6em;
+    }
+
+    .c-popup__text {
+        color: $color-text-light-secondary;
+        font-size: 1.8em;
+        font-weight: 300;
+        line-height: 1.5;
+    }
+}
+
+.u-wrapper-mask {
+    height: 100vh;
+    width: 100%;
+    backdrop-filter: blur(18px);
+    background-color: #00000042;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
