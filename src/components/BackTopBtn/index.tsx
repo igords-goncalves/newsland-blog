@@ -1,12 +1,7 @@
-import { useEffect } from 'react';
 import backTopBtn from '../../assets/img/back-top-btn.svg';
 import './style.scss';
 
 export const BackTopBtn = (): JSX.Element => {
-    useEffect(() => {
-        window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
-    }, []);
-
     return (
         <button
             className="c-btn"
