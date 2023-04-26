@@ -3,41 +3,86 @@ import { useState } from 'react';
 import './style.scss';
 import favorite from '../../assets/img/favorite-heart.svg';
 import favoriteToggled from '../../assets/img/favorite-toggled.svg';
+import close from '../../assets/img/close.svg';
+import { BackTopBtn } from '../BackTopBtn';
 
-export const Card = (): JSX.Element => {
+interface DataProps {
+    date: string;
+    title: string;
+    description?: string;
+    post?: string;
+}
+
+export const Card: React.FC<DataProps> = ({
+    date,
+    title,
+    description,
+    post,
+}) => {
     const [isFavorite, setIsFavorite] = useState(favorite);
+    const [isActive, setIsActive] = useState(false);
 
     const handleFavoriteIcon = (): string => {
         setIsFavorite(isFavorite === favorite ? favoriteToggled : favorite);
         return isFavorite;
     };
 
-    // TODO: Provisório
-    const date = new Date();
-    const currDate = date.getDate();
-    const currMonth = date.toLocaleString('pt-BR', { month: 'long' });
-    const currYear = date.getFullYear();
-    // ============
+    const onOpenPopUp = () => {
+        document.body.style.overflow = 'hidden';
+        setIsActive(true);
+    };
+    const onClosePopUp = () => {
+        document.body.style.overflow = 'auto';
+        setIsActive(false);
+    };
+
+    const handleDate = (date: string) => {
+        return new Date(date).toLocaleDateString('pt-BR', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+        });
+    };
 
     return (
-        <div className="c-card">
-            <header className="c-card__header u-header__flex">
-                <p className="c-card__date">{`${currDate} de ${currMonth}, ${currYear}`}</p>
-                <img
-                    onClick={handleFavoriteIcon}
-                    src={isFavorite}
-                    alt="Coração"
-                    className="c-card__favorite"
-                />
-            </header>
-            <h2 className="c-card__title">Lorem, ipsum dolor sit</h2>
-            {/* TODO: Acionar o title como link p/ abrir o modal da noticia */}
-            <p className="c-card__text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae
-                enim sunt incidunt officia, debitis odio reprehenderit sit
-                ducimus pariatur quam tempore. Impedit, mollitia suscipit
-                tenetur magnam aspernatur nisi quaerat quae.
-            </p>
-        </div>
+        <>
+            {!isActive ? (
+                <>
+                    <div className="c-card">
+                        <header className="c-card__header u-header__flex">
+                            <p className="c-card__date">{handleDate(date)}</p>
+                            <img
+                                onClick={handleFavoriteIcon}
+                                src={isFavorite}
+                                alt="Coração"
+                                className="c-card__favorite"
+                            />
+                        </header>
+                        <h2 onClick={onOpenPopUp} className="c-card__title">
+                            {title}
+                        </h2>
+                        <p className="c-card__text">{description}</p>
+                    </div>
+                    {/* TODO: Ajustar renderização do backl top para renderizar somente quando modal fechado */}
+                    <BackTopBtn />
+                </>
+            ) : (
+                <div className="u-wrapper-mask">
+                    <div className="c-popup">
+                        <header className="c-popup__header u-header__flex">
+                            <p className="c-popup__date">{handleDate(date)}</p>
+                            <img
+                                src={close}
+                                alt="Fechar"
+                                className="c-popup__close"
+                                onClick={onClosePopUp}
+                            />
+                        </header>
+                        <h2 className="c-popup__title">{title}</h2>
+                        <p className="c-popup__text">{post}</p>
+                    </div>
+                </div>
+            )}
+        </>
     );
 };
