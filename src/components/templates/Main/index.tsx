@@ -1,6 +1,7 @@
 import { Card } from '../../Card';
 import posts from '../../../core/mock/posts.json';
 import './style.scss';
+import { BackTopBtn } from '../../BackTopBtn';
 
 interface Post {
     id: number;
@@ -26,6 +27,8 @@ export const Main = (): JSX.Element => {
                     />
                 ))}
             </div>
+            {/* Botão back to top deve desaparecer quando popup aberto */}
+            <BackTopBtn />
         </main>
     );
 };
