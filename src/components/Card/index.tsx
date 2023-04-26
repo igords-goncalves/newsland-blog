@@ -4,7 +4,6 @@ import './style.scss';
 import favorite from '../../assets/img/favorite-heart.svg';
 import favoriteToggled from '../../assets/img/favorite-toggled.svg';
 import close from '../../assets/img/close.svg';
-import { BackTopBtn } from '../BackTopBtn';
 
 interface DataProps {
     date: string;
@@ -29,14 +28,14 @@ export const Card: React.FC<DataProps> = ({
 
     const onOpenPopUp = () => {
         document.body.style.overflow = 'hidden';
-        setIsActive(true);
+        return setIsActive(true);
     };
     const onClosePopUp = () => {
         document.body.style.overflow = 'auto';
-        setIsActive(false);
+        return setIsActive(false);
     };
 
-    const handleDate = (date: string) => {
+    const parseDate = (date: string) => {
         return new Date(date).toLocaleDateString('pt-BR', {
             year: 'numeric',
             month: 'long',
@@ -47,30 +46,26 @@ export const Card: React.FC<DataProps> = ({
     return (
         <>
             {!isActive ? (
-                <>
-                    <div className="c-card">
-                        <header className="c-card__header u-header__flex">
-                            <p className="c-card__date">{handleDate(date)}</p>
-                            <img
-                                onClick={handleFavoriteIcon}
-                                src={isFavorite}
-                                alt="Coração"
-                                className="c-card__favorite"
-                            />
-                        </header>
-                        <h2 onClick={onOpenPopUp} className="c-card__title">
-                            {title}
-                        </h2>
-                        <p className="c-card__text">{description}</p>
-                    </div>
-                    {/* TODO: Ajustar renderização do backl top para renderizar somente quando modal fechado */}
-                    <BackTopBtn />
-                </>
+                <div className="c-card">
+                    <header className="c-card__header u-header__flex">
+                        <p className="c-card__date">{parseDate(date)}</p>
+                        <img
+                            onClick={handleFavoriteIcon}
+                            src={isFavorite}
+                            alt="Coração"
+                            className="c-card__favorite"
+                        />
+                    </header>
+                    <h2 onClick={onOpenPopUp} className="c-card__title">
+                        {title}
+                    </h2>
+                    <p className="c-card__text">{description}</p>
+                </div>
             ) : (
                 <div className="u-wrapper-mask">
                     <div className="c-popup">
                         <header className="c-popup__header u-header__flex">
-                            <p className="c-popup__date">{handleDate(date)}</p>
+                            <p className="c-popup__date">{parseDate(date)}</p>
                             <img
                                 src={close}
                                 alt="Fechar"
