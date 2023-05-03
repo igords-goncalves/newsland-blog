@@ -3,7 +3,12 @@
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": true
     },
+
     "material-icon-theme.folders.associations": {
-        "state": "database"
+        "redux": "redux-store",
+        "state": "constant",
+        "initialState": "redux-selector",
+        "BackTopBtn": "react-components",
+        "Card": "react-components",
     }
 }
