@@ -8,7 +8,7 @@ import { handleChange } from '../../../state/constants/redux/actions/handlesChan
 export const Header = (): JSX.Element => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
-    // TODO: O resultado da busca deve ir para o contexto
+    // TODO: O state deve ir para o contexto ou ser acessado pelo component Card
     // TODO: Exportar a ation também
 
     console.log(state);
