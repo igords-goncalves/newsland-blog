@@ -1,18 +1,14 @@
-import { useReducer } from 'react';
-import { initialState } from '../../../state/constants/redux/initialState';
-import { reducer } from '../../../state/constants/redux/reducer';
+import { connect } from 'react-redux';
+
 import logo from '../../../assets/img/logo.svg';
 import './style.scss';
-import { handleChange } from '../../../state/constants/redux/actions/handlesChange';
+import { getInputValue } from '../../../redux/actions/inputValue';
 
-export const Header = (): JSX.Element => {
-    const [state, dispatch] = useReducer(reducer, initialState);
+interface porpsInputValue {
+    inputValue: any;
+}
 
-    // TODO: O state deve ir para o contexto ou ser acessado pelo component Card
-    // TODO: Exportar a ation também
-
-    console.log(state);
-
+const Header = ({ inputValue }: porpsInputValue): JSX.Element => {
     return (
         <header className="c-header">
             <div className="u-container u-header__container">
@@ -23,11 +19,29 @@ export const Header = (): JSX.Element => {
                 <input
                     type="text"
                     placeholder="Pesquise no blog"
+                    onChange={e => inputValue(e.target.value)}
                     id="icon"
-                    onChange={e => handleChange(e, dispatch)}
                     className="c-header__input"
                 />
             </div>
         </header>
     );
 };
+
+const mapStateToProps = (state: any) => {
+    console.log(`Agora foi = ${state.value.inputValue}`);
+    return {
+        inputValue: state.value.inputValue,
+    };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        inputValue(value: string) {
+            const action = getInputValue(value);
+            dispatch(action);
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
