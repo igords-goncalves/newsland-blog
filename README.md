@@ -4,26 +4,16 @@ Uma breve descrição do projeto.
 ## Sobre o Projeto
 Descreva com mais detalhes sobre o que se trata o projeto, qual problema ele visa resolver, qual a sua motivação para criá-lo e qualquer outro contexto relevante.
 
-| Desktop | Tablet |
+| Screen | Shots |
 | -------- | -------- |
 | ![Linha 2, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(6).png) | ![Linha 2, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(5).png) |
 | ![Linha 3, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(1).png) | ![Linha 3, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(8).png) |
 
 ## Tecnologias Utilizadas
 
-![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
+![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
 
-![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
-
-![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)
-
-![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white)
-
-![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
-
-![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
-
-![Vercel](https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white)
+![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![ESLint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 
 ## Como Instalar e Executar
 Clone este repositório em sua máquina local.
