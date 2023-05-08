@@ -4,6 +4,13 @@ Uma breve descrição do projeto.
 ## Sobre o Projeto
 Descreva com mais detalhes sobre o que se trata o projeto, qual problema ele visa resolver, qual a sua motivação para criá-lo e qualquer outro contexto relevante.
 
+| Desktop | Tablet | Mobile |
+| -------- | -------- | -------- |
+| ![Linha 1, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(7).png) | ![Linha 1, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(4).png) |
+| [Linha 2, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(6).png) | [Linha 2, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(5).png) |
+| [Linha 3, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(1).png) | [Linha 3, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(8).png) |
+| [Linha 4, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(2).png) | [Linha 4, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(3).png) |
+
 ## Tecnologias Utilizadas
 
 ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white)
