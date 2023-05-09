@@ -29,7 +29,6 @@ const Header = ({ inputValue }: porpsInputValue): JSX.Element => {
 };
 
 const mapStateToProps = (state: any) => {
-    console.log(`Agora foi = ${state.value.inputValue}`);
     return {
         inputValue: state.value.inputValue,
     };
