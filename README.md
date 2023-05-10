@@ -10,8 +10,8 @@ Descreva com mais detalhes sobre o que se trata o projeto, qual problema ele vis
 
 | 💙 | 👀  |
 | -------- | -------- |
-| ![Linha 2, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(6).png) | ![Linha 2, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(5).png) |
-| ![Linha 3, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(1).png) | ![Linha 3, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/feature/fusejs/.github/img/print_screens%20(8).png) |
+| ![Linha 2, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/master/.github/img/print_screens%20(6).png) | ![Linha 2, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/master/.github/img/print_screens%20(5).png) |
+| ![Linha 3, Coluna 1](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/master/.github/img/print_screens%20(1).png) | ![Linha 3, Coluna 2](https://github.com/igords-goncalves/desafio-codelandia-1-blog/blob/master/.github/img/print_screens%20(8).png) |
 
 ## 💻 Como Instalar e Executar
 
@@ -64,9 +64,5 @@ Este projeto está licenciado sob a Licença MIT - veja o arquivo LICENSE para m
 
 Se tiver alguma dúvida ou sugestão abra uma issue ou entre em contato comigo através do e-mail: ***igordossantos38@gmail.com***.
 
-<div style="text-align: center;">
-
 [![Open Source? Yes!](https://badgen.net/badge/Open%20Source%20%3F/Yes%21/blue?icon=github)](https://github.com/Naereen/badges/)
 [![thanks](https://img.shields.io/badge/say-thanks-ff69b4.svg)](https://saythanks.io/to/kennethreitz)
-
-</div>
