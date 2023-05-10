@@ -26,6 +26,7 @@ const Main = ({ inputValue }: StateProps): JSX.Element => {
 
     const fuse = useFuse(post, { inputValue, options });
     console.log(fuse);
+    // TODO: Renderizar o card se input preenchido senão rederize todos os cards
 
     return (
         <main className="c-main">
