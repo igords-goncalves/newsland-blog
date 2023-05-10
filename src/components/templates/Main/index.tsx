@@ -23,6 +23,7 @@ interface StateProps {
 const Main = ({ inputValue }: StateProps): JSX.Element => {
     const [isSearched, setIsSeacrched] = useState(false);
     const post: Post[] = posts.posts;
+    console.log(setIsSeacrched);
 
     const fuse = useFuse(post, { inputValue, options });
     console.log(fuse);
