@@ -6,7 +6,7 @@
 Blog de notícias em tempo real.
 
 ## 🗨 Sobre o Projeto
-Descreva com mais detalhes sobre o que se trata o projeto, qual problema ele visa resolver, qual a sua motivação para criá-lo e qualquer outro contexto relevante.
+Esse é um projeto que concentra notícias providas pela API Google News onde se existe a opção de leitura rápida através da tela incial ou leitura completa através da abertura de um pop-up. O design desse projeto foi idealizado em dos desafios/exercício proposto pelo desenvolvedor e designer Iuri Silva fundador da comunidade codelândia e idealizador do e-book eFront, [saiba mais.](https://iuricode.com/)
 
 | 💙 | 👀  |
 | -------- | -------- |
