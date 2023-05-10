@@ -1,7 +1,14 @@
-import './style.scss';
-import logo from '../../../assets/img/logo.svg';
+import { connect } from 'react-redux';
 
-export const Header = (): JSX.Element => {
+import logo from '../../../assets/img/logo.svg';
+import './style.scss';
+import { getInputValue } from '../../../redux/actions/inputValue';
+
+interface porpsInputValue {
+    inputValue: any;
+}
+
+const Header = ({ inputValue }: porpsInputValue): JSX.Element => {
     return (
         <header className="c-header">
             <div className="u-container u-header__container">
@@ -12,6 +19,7 @@ export const Header = (): JSX.Element => {
                 <input
                     type="text"
                     placeholder="Pesquise no blog"
+                    onChange={e => inputValue(e.target.value)}
                     id="icon"
                     className="c-header__input"
                 />
@@ -19,3 +27,20 @@ export const Header = (): JSX.Element => {
         </header>
     );
 };
+
+const mapStateToProps = (state: any) => {
+    return {
+        inputValue: state.value.inputValue,
+    };
+};
+
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+        inputValue(value: string) {
+            const action = getInputValue(value);
+            dispatch(action);
+        },
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
