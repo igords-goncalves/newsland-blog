@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import posts from '../../../core/mock/posts.json';
 import './style.scss';
@@ -17,36 +17,35 @@ interface Post {
 }
 
 interface StateProps {
-    inputValue: string | any;
+    inputValue: string;
 }
 
 const Main = ({ inputValue }: StateProps): JSX.Element => {
-    const [isSearched, setIsSeacrched] = useState(false);
     const post: Post[] = posts.posts;
-    console.log(setIsSeacrched);
+    const [isFiltered, setIsFiltered] = useState<Post[] | any>(post);
 
     const fuse = useFuse(post, { inputValue, options });
-    console.log(fuse);
     // TODO: Renderizar o card se input preenchido senão rederize todos os cards
+
+    useEffect(() => {
+        setIsFiltered(
+            fuse.length > 0 ? fuse.map(results => results.item) : post,
+        );
+    }, [inputValue]);
 
     return (
         <main className="c-main">
-            {!isSearched ? (
-                <div className="u-container c-main__container">
-                    {post.map(post => (
-                        <Card
-                            key={post.id}
-                            date={post.date}
-                            title={post.title}
-                            description={post.description}
-                            post={post.post}
-                        />
-                    ))}
-                </div>
-            ) : (
-                'vazio'
-            )}
-            {/* Botão back to top deve desaparecer quando popup aberto */}
+            <div className="u-container c-main__container">
+                {isFiltered.map((post: Post) => (
+                    <Card
+                        key={post.id}
+                        date={post.date}
+                        title={post.title}
+                        description={post.description}
+                        post={post.post}
+                    />
+                ))}
+            </div>
             <BackTopBtn />
         </main>
     );
