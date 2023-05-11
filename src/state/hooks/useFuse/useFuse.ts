@@ -9,6 +9,6 @@ export const useFuse = (
     data: object | any,
     { inputValue, options }: FuseTypes,
 ) => {
-    const fuse = new Fuse(data, options).search(inputValue);
+    const fuse = new Fuse<unknown>(data, options).search(inputValue);
     return fuse;
 };
