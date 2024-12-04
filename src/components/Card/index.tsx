@@ -4,6 +4,7 @@ import './style.scss';
 import favorite from '../../assets/img/favorite-heart.svg';
 import favoriteToggled from '../../assets/img/favorite-toggled.svg';
 import close from '../../assets/img/close.svg';
+import { handleDataLayerIntro } from '../../utils/handleDataLayerIntro';
 
 interface DataProps {
     date: string;
@@ -27,6 +28,8 @@ export const Card: React.FC<DataProps> = ({
     };
 
     const onOpenPopUp = () => {
+        handleDataLayerIntro('click_link', 'click', title);
+        // console.log(window.dataLayer);
         document.body.style.overflow = 'hidden';
         return setIsActive(true);
     };
