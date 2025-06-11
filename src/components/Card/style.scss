@@ -3,17 +3,22 @@
 .c-card {
     background-color: $color-text-dark;
     box-shadow: 0px 0px 10px rgba(19, 19, 31, 0.05);
-    border-radius: 5px;
+    border-radius: 8px;
     padding: 26px;
     margin-top: 50px;
+
+    &:hover {
+        outline: 2px solid $blue-light-left;
+    }
 
     font-family: $font-family;
 
     .c-card__title {
         width: fit-content;
         color: $color-text-light;
-        font-size: 1.6em;
-        margin: 22px 0 8px 0;
+        font-weight: 500;
+        font-size: 1.2em;
+        margin: 22px 0 16px 0;
         cursor: pointer;
 
         &:hover {
@@ -21,9 +26,15 @@
             text-decoration: underline;
         }
     }
-    .c-card__date, .c-card__text {
+    .c-card__date,
+    .c-card__text {
         color: $color-text-light-secondary;
-        font-size: 1.1em;
+        font-size: 1em;
+        text-align: justify;
+    }
+
+    .c-card__text {
+        margin-top: 18px;
     }
 
     .c-card__favorite {
@@ -32,9 +43,9 @@
 }
 
 .c-popup {
-    width: 100%;
+    width: 65%;
     max-width: 1024px;
-    max-height: 700px;
+    max-height: 500px;
     background-color: $color-text-dark;
     position: fixed;
     top: 50%;
@@ -42,23 +53,24 @@
     transform: translate(-50%, -50%);
     height: fit-content;
     overflow-y: auto;
-    padding: 30px 60px;
+    padding: 0 60px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(19, 19, 31, 0.199);
 
-    @media(max-width: 1366px) {
+    @media (max-width: 1366px) {
         top: 55%;
     }
 
     &::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.103);
-        background-color: #F5F5F5;
+        background-color: #f5f5f5;
     }
     &::-webkit-scrollbar {
-	    width: 10px;
+        width: 10px;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: $blue-light-left;
+        background-color: #cfcfcf;
+        border-radius: 8px;
     }
 
     font-family: $font-family;
@@ -66,45 +78,60 @@
     .c-popup__title {
         width: fit-content;
         color: $blue-light-left;
-        font-size: 3.6em;
+        font-size: 1.6em;
+        font-weight: 500;
         margin: 22px 0 30px 0;
 
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
             font-size: 2em;
         }
-        @media(max-width: 376px) {
+        @media (max-width: 376px) {
             font-size: 1.5em;
         }
     }
     .c-popup__close {
         cursor: pointer;
+        width: 12px;
     }
 
     .c-popup__date {
         color: $color-text-light-secondary;
-        font-size: 1.6em;
+        font-size: 1em;
 
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
             font-size: 1.5em;
         }
-        @media(max-width: 376px) {
+        @media (max-width: 376px) {
             font-size: 1em;
         }
     }
 
     .c-popup__text {
         color: $color-text-light-secondary;
-        font-size: 1.8em;
-        font-weight: 300;
+        font-size: 1.1em;
+        font-weight: 400;
         line-height: 1.5;
         margin-bottom: 100px;
 
-        @media(max-width: 768px) {
+        @media (max-width: 768px) {
             font-size: 1.2em;
         }
-        @media(max-width: 376px) {
+        @media (max-width: 376px) {
             font-size: 1em;
         }
+    }
+
+    .c-popup__header {
+        position: sticky;
+        width: 100%;
+        top: 0;
+        background-color: rgba($color-text-dark, 1);
+        backdrop-filter: blur(8px);
+        padding: 20px 0;
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
 }
 
@@ -112,8 +139,8 @@
     z-index: 9999;
     height: 100vh;
     width: 100%;
-    backdrop-filter: blur(19px);
-    background-color: #00000042;
+    backdrop-filter: blur(8px);
+    background-color: #0000004f;
     position: fixed;
     top: 0;
     left: 0;

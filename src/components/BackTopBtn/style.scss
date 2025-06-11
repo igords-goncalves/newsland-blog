@@ -1,7 +1,14 @@
 .c-btn {
     position: fixed;
     border: none;
-    top: 95%;
-    right: 10%;
-    background-color: #ffffff00;
+    top: 75%;
+    right: 5%;
+    background-color: #ffffffbc;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    backdrop-filter: blur(3px);
+    box-shadow: rgba(45, 45, 45, 0.1) 0px 2px 4px,
+        rgba(45, 45, 45, 0.1) 0px 2px 4px;
 }

@@ -1,15 +1,15 @@
-import { useState } from 'react';
-
 import './style.scss';
 import favorite from '../../assets/img/favorite-heart.svg';
 import favoriteToggled from '../../assets/img/favorite-toggled.svg';
 import close from '../../assets/img/close.svg';
-import { handleDataLayerIntro } from '../../utils/handleDataLayerIntro';
+import { parseDate } from '../../utils/parseDate';
+import { useFavoriteIcon } from '../../hooks/useFavoriteIcon';
+import { useHandlePopUp } from '../../hooks/useHandlePopUp';
 
 interface DataProps {
     date: string;
     title: string;
-    description?: string;
+    description: string;
     post?: string;
 }
 
@@ -19,32 +19,18 @@ export const Card: React.FC<DataProps> = ({
     description,
     post,
 }) => {
-    const [isFavorite, setIsFavorite] = useState(favorite);
-    const [isActive, setIsActive] = useState(false);
+    const { isActive, onClosePopUp, onOpenPopUp } = useHandlePopUp(title);
+    const { isFavorite, handleFavoriteIcon } = useFavoriteIcon(
+        favorite,
+        favoriteToggled,
+    );
 
-    const handleFavoriteIcon = (): string => {
-        setIsFavorite(isFavorite === favorite ? favoriteToggled : favorite);
-        return isFavorite;
-    };
+    function cutDescription(description: string) {
+        const text = description.trim().split(/\s+/);
+        const sumary = text.slice(0, 40).join(' ');
 
-    const onOpenPopUp = () => {
-        handleDataLayerIntro('click_link', 'click', title);
-        // console.log(window.dataLayer);
-        document.body.style.overflow = 'hidden';
-        return setIsActive(true);
-    };
-    const onClosePopUp = () => {
-        document.body.style.overflow = 'auto';
-        return setIsActive(false);
-    };
-
-    const parseDate = (date: string) => {
-        return new Date(date).toLocaleDateString('pt-BR', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-        });
-    };
+        return text.length > 40 ? sumary + '...' : sumary;
+    }
 
     return (
         <>
@@ -62,7 +48,9 @@ export const Card: React.FC<DataProps> = ({
                     <h2 onClick={onOpenPopUp} className="c-card__title">
                         {title}
                     </h2>
-                    <p className="c-card__text">{description}</p>
+                    <p className="c-card__text">
+                        {cutDescription(description)}
+                    </p>
                 </div>
             ) : (
                 <div className="u-wrapper-mask">

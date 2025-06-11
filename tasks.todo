@@ -1,0 +1,44 @@
+Notes:
+Fluxo do usuário em @url:https://whimsical.com/newsland-blog-AbNgWjrncLdSbKWaxeXj8u
+
+Tasks:
+    Google:
+    Decida o que é importante enviar para o data layer.
+        ✔ Capturar o evento/ação e enviar para o data layer; @critical @done(24-12-03 23:34)
+        ✔ Implementar o dataLayer; @critical @done(24-12-03 23:34)
+        ✔ Verificar o dataLayer de acordo com tipo de dispositivo do usuário; @done(24-12-04 00:06)
+        ✔ Criar conta no google tag manager; @done(24-12-04 08:56)
+        ✔ Adicionar o google tag manager; @done(24-12-04 08:56)
+    Configurações:
+        ✔ Criar variáveis para coleta de dados; @critical @started(24-12-04 08:57) @done(24-12-04 09:37) @lasted(40m47s)
+        ✔ Criar acionadores que vão disparar tags; @started(24-12-04 08:58) @done(24-12-04 09:37) @lasted(39m49s)
+        ✔ Criar tags com ações especificas; @started(24-12-04 08:58) @done(24-12-04 09:37) @lasted(39m55s)
+        ✔ Criar parâmetros de acordo com objetivo do projeto; @started(24-12-04 09:37) @done(24-12-04 10:17) @lasted(40m42s)
+        ✔ Quando a noticia abrir disparar tags; @started(24-12-04 09:38) @done(24-12-04 10:17) @lasted(39m43s)
+    Google Analytics:
+        ☐ Configurar GA;
+        ☐ Criar conexão com GTM;
+
+    Refactoring:
+    Melhorias gerais de código e desing da página.
+        ✔ Melhorar tamanho de fonte e do modal de noticias; @done(25-06-10 21:05)
+        ✔ Melhor design geral da página; @high @done(25-06-10 21:32)
+        ✔ Melhorar mecanismo busca rápida com `fuse.js`; @done(25-06-11 08:32)
+        ☐ Aplicar dark mode agora disponível em:
+            @url:https://www.figma.com/design/Yb9IBH56g7T1hdIyZ3BMNO/Desafios---CodeLab?node-id=0-1&p=f&t=16zznyDK8FrrqDme-0
+            @url:https://medium.com/@katiemctigue/how-to-create-a-dark-mode-in-sass-609f131a3995
+        ☐ Implementar acessibilidade no blog;
+        ☐ Salvar favoritos em localhost; @low
+        ✔ Aplicar animações com `motion` nos cards de notícias; @done(25-06-11 09:21)
+        ✔ Elminar lógica desnecessária de dentro dos componentes; @done(25-06-11 08:45)
+        ☐ Elminiar uso do redux e substituir por `contextApi`/`zustand`;
+;
+
+    API integrations:
+        ✔ Melhorar estrutura de pastas; @done(25-06-11 13:49)
+            - Simplificar
+            - Organizar
+        ✔ Integrar com API de notícias; @done(25-06-11 13:49)
+        ☐ Implementar idioma;
+        ☐ Implementar Lazy Loading e Suspense;
+        ☐ Implementar sistema de paginação/scroll infinito;

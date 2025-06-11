@@ -1,14 +1,6 @@
 {
-    "editor.formatOnSave": false,
+    "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
         "source.fixAll.eslint": "explicit"
     },
-
-    "material-icon-theme.folders.associations": {
-        "redux": "redux-store",
-        "state": "constant",
-        "initialState": "redux-selector",
-        "BackTopBtn": "react-components",
-        "Card": "react-components",
-    }
 }

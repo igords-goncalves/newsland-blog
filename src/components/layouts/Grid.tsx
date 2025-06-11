@@ -1,4 +1,4 @@
-import '../../../global.scss';
+import './style.scss';
 
 export interface GridProps {
     direction?: 'grid-template-row' | null;
