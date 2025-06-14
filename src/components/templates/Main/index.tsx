@@ -1,4 +1,3 @@
-import { connect } from 'react-redux';
 import * as motion from 'motion/react-client';
 import './style.scss';
 
@@ -8,15 +7,14 @@ import { Article } from '../../../types/article';
 import { useFuse } from '../../../hooks/useFuse';
 import { useFetchNews } from '../../../hooks/useFetchNews';
 import Skeleton from '../../Skeleton';
-import React from 'react';
+import React, { useContext } from 'react';
+import { SearchContext } from '../../../context/SearchContext';
 
-interface StateProps {
-    inputValue: string;
-}
-
-const Main = ({ inputValue }: StateProps): JSX.Element => {
+export const Main = (): JSX.Element => {
     const { news, isLoading, isError } = useFetchNews();
-    const { isFiltered } = useFuse(inputValue, news);
+    const { searchTerm } = useContext(SearchContext);
+
+    const { isFiltered } = useFuse(searchTerm, news);
 
     if (isError) {
         return (
@@ -66,10 +64,3 @@ const Main = ({ inputValue }: StateProps): JSX.Element => {
         </main>
     );
 };
-
-const mapStateToProps = (state: any) => {
-    return {
-        inputValue: state.value.inputValue,
-    };
-};
-export default connect(mapStateToProps)(Main);

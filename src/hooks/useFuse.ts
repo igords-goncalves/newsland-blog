@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Article } from '../types/article';
 import Fuse from 'fuse.js';
 
-export const useFuse = (inputValue: string, news: Article[]) => {
+export const useFuse = (searchTerm: string, news: Article[]) => {
     const [isFiltered, setIsFiltered] = useState<Article[]>(news);
 
     const options = {
@@ -21,17 +21,17 @@ export const useFuse = (inputValue: string, news: Article[]) => {
         keys: ['title', 'date', 'description', 'post'],
     };
 
-    const fuse = new Fuse<unknown>(news, options).search(inputValue);
+    const fuse = new Fuse<unknown>(news, options).search(searchTerm);
 
     useEffect(() => {
-        if (inputValue) {
+        if (searchTerm) {
             setIsFiltered(
                 fuse.length > 0 ? fuse.map((results: any) => results.item) : [],
             );
         } else {
             setIsFiltered(news);
         }
-    }, [inputValue, news]);
+    }, [searchTerm, news]);
 
     return {
         isFiltered,

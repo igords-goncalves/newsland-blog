@@ -28,10 +28,10 @@ Tasks:
             @url:https://www.figma.com/design/Yb9IBH56g7T1hdIyZ3BMNO/Desafios---CodeLab?node-id=0-1&p=f&t=16zznyDK8FrrqDme-0
             @url:https://medium.com/@katiemctigue/how-to-create-a-dark-mode-in-sass-609f131a3995
         ☐ Implementar acessibilidade no blog; @low
-        ☐ Salvar favoritos em localhost; @low
+        ☐ Salvar favoritos em localstorage; @low
         ✔ Aplicar animações com `motion` nos cards de notícias; @done(25-06-11 09:21)
         ✔ Elminar lógica desnecessária de dentro dos componentes; @done(25-06-11 08:45)
-        ☐ Elminiar uso do redux e substituir por `contextApi`/`zustand`;
+        ✔ Elminiar uso do redux e substituir por `contextApi`/`zustand`; @done(25-06-14 15:59)
 ;
 
     API integrations:
@@ -46,3 +46,10 @@ Tasks:
         ✔ Implementar estado de loagin; @done(25-06-14 13:32)
         ☐ Implementar sistema de paginação/scroll infinito; @high
         ✔ Corrigir bug de re-render do componente de input; @critical @done(25-06-14 12:34)
+
+    Testar Aplicação:
+        ☐ Testar aplicação com cypress;
+        ☐ Criar pipeline;
+
+    Qualidade:
+        ☐ Aplicar o core web vitals;
