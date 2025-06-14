@@ -4,11 +4,11 @@ import logo from '../../../assets/img/logo.svg';
 import './style.scss';
 import { getInputValue } from '../../../redux/actions/inputValue';
 
-interface porpsInputValue {
+interface propsInputValue {
     inputValue: any;
 }
 
-const Header = ({ inputValue }: porpsInputValue): JSX.Element => {
+const Header = ({ inputValue }: propsInputValue): JSX.Element => {
     return (
         <header className="c-header">
             <div className="u-container u-header__container">

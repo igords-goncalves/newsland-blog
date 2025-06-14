@@ -1,30 +1,39 @@
+import { useEffect, useState } from 'react';
+import { Article } from '../types/article';
 import Fuse from 'fuse.js';
 
-interface FuseTypes {
-    inputValue: string | any;
-    options: object;
-}
+export const useFuse = (inputValue: string, news: Article[]) => {
+    const [isFiltered, setIsFiltered] = useState<Article[]>(news);
 
-export const options = {
-    isCaseSensitive: false,
-    includeScore: true,
-    shouldSort: true,
-    includeMatches: false,
-    minMatchCharLength: 2,
-    location: 0,
-    threshold: 0.6,
-    distance: 100,
-    useExtendedSearch: true,
-    ignoreLocation: false,
-    ignoreFieldNorm: false,
-    fieldNormWeight: 1,
-    keys: ['title', 'date', 'description', 'post'],
-};
+    const options = {
+        isCaseSensitive: false,
+        includeScore: true,
+        shouldSort: true,
+        includeMatches: false,
+        minMatchCharLength: 2,
+        location: 0,
+        threshold: 0.6,
+        distance: 100,
+        useExtendedSearch: true,
+        ignoreLocation: false,
+        ignoreFieldNorm: false,
+        fieldNormWeight: 1,
+        keys: ['title', 'date', 'description', 'post'],
+    };
 
-export const useFuse = (
-    data: object | any,
-    { inputValue, options }: FuseTypes,
-) => {
-    const fuse = new Fuse<unknown>(data, options).search(inputValue);
-    return fuse;
+    const fuse = new Fuse<unknown>(news, options).search(inputValue);
+
+    useEffect(() => {
+        if (inputValue) {
+            setIsFiltered(
+                fuse.length > 0 ? fuse.map((results: any) => results.item) : [],
+            );
+        } else {
+            setIsFiltered(news);
+        }
+    }, [inputValue, news]);
+
+    return {
+        isFiltered,
+    };
 };

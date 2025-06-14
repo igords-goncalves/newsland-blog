@@ -11,11 +11,12 @@
     .c-main__container {
         margin-top: 25px;
     }
+}
 
-    p {
-        text-align: center;
-        margin-top: 50px;
-        width: 100%;
-        font-family: $font-family;
-    }
+p {
+    text-align: center;
+    margin-top: 50px;
+    width: 100%;
+    font-family: $font-family;
+    color: red;
 }

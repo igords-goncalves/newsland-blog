@@ -6,8 +6,8 @@ export default class NewsDataService extends HttpService {
 
     constructor() {
         super();
-        // this.apiKey = process.env.API_KEY;
-        // this.baseUrl = process.env.API_URL;
+        this.apiKey = process.env.API_KEY;
+        this.baseUrl = process.env.API_URL;
     }
 
     get(endpoint: string, params: object) {

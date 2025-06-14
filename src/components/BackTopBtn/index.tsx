@@ -1,8 +1,9 @@
 import * as motion from 'motion/react-client';
 import backTopBtn from '../../assets/img/back-top-btn.svg';
 import './style.scss';
+import { memo } from 'react';
 
-export const BackTopBtn = (): JSX.Element => {
+const BackTopBtn = (): JSX.Element => {
     return (
         <button
             className="c-btn"
@@ -20,3 +21,5 @@ export const BackTopBtn = (): JSX.Element => {
         </button>
     );
 };
+
+export default memo(BackTopBtn);

@@ -9,14 +9,4 @@ export default class HttpService {
             // },
         });
     }
-
-    buildQueryString(values: string[]) {
-        const entries = Object.entries(values);
-
-        if (!entries.length) return '';
-
-        const qryString =
-            '?' + entries.map(([key, val]) => `${key}=${val}`).join('&');
-        return qryString.length ? qryString : '';
-    }
 }
