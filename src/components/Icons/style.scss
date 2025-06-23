@@ -1,0 +1,25 @@
+@import '../../theme.scss';
+
+.lucide-heart {
+    @include themed() {
+        stroke: t($outline);
+    }
+    fill: none;
+    stroke-width: 2px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &.favorited {
+        fill: #e07b67;
+        stroke: #e07b67;
+        transform: scale(1.1);
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}

@@ -1,12 +1,10 @@
 import './style.scss';
-import favorite from '../../assets/img/favorite-heart.svg';
-import favoriteToggled from '../../assets/img/favorite-toggled.svg';
-import close from '../../assets/img/close.svg';
 import { parseDate } from '../../utils/parseDate';
 import { cutDescription } from '../../utils/cutDescription';
-import { useFavoriteIcon } from '../../hooks/useFavoriteIcon';
 import { useHandlePopUp } from '../../hooks/useHandlePopUp';
 import { memo } from 'react';
+import { CircleX } from 'lucide-react';
+import { Heart } from '../Icons/Heart';
 
 interface CardProps {
     date: string;
@@ -15,24 +13,22 @@ interface CardProps {
     post?: string;
 }
 
-const Card: React.FC<CardProps> = ({ date, title, description, post }) => {
+const Card: React.FC<CardProps> = ({ date, title, description /*post*/ }) => {
     const { isActive, onClosePopUp, onOpenPopUp } = useHandlePopUp(title);
-    const { isFavorite, handleFavoriteIcon } = useFavoriteIcon(
-        favorite,
-        favoriteToggled,
-    );
+
     return (
         <>
             {!isActive ? (
                 <div className="c-card">
                     <header className="c-card__header u-header__flex">
                         <p className="c-card__date">{parseDate(date)}</p>
-                        <img
+                        {/* <img
                             onClick={handleFavoriteIcon}
                             src={isFavorite}
                             alt="Coração"
                             className="c-card__favorite"
-                        />
+                        /> */}
+                        <Heart />
                     </header>
                     <h2 onClick={onOpenPopUp} className="c-card__title">
                         {title}
@@ -46,16 +42,16 @@ const Card: React.FC<CardProps> = ({ date, title, description, post }) => {
                     <div className="c-popup">
                         <header className="c-popup__header u-header__flex">
                             <p className="c-popup__date">{parseDate(date)}</p>
-                            <img
-                                src={close}
-                                alt="Fechar"
+                            <div
                                 className="c-popup__close"
                                 onClick={onClosePopUp}
-                            />
+                            >
+                                <CircleX className="close-btn" />
+                            </div>
                         </header>
                         <h2 className="c-popup__title">{title}</h2>
 
-                        <p className="c-popup__text">{post}</p>
+                        <p className="c-popup__text">{description}</p>
                     </div>
                 </div>
             )}

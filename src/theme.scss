@@ -1,0 +1,55 @@
+@import './global.variables.scss';
+
+// Shortcuts
+
+$bg: 'bg';
+$bg-secondary: 'bg-secondary';
+$text-primary: 'text-primary';
+$text-secondary: 'text-secondary';
+$bg-input: 'bg-input';
+$border: 'border';
+$outline: 'outline';
+
+$themes: (
+    'light': (
+        bg: $bg-light,
+        text-primary: $text-light,
+        text-secondary: $paragraph-light,
+        bg-secondary: $bg-secondary-light,
+        bg-input: $bg-input-light,
+        border: $border-light,
+        outline: $outline-light,
+    ),
+    'dark': (
+        bg: $bg-dark,
+        text-primary: $text-dark,
+        text-secondary: $paragraph-dark,
+        bg-secondary: $bg-secondary-dark,
+        bg-input: $bg-input-dark,
+        border: $border-dark,
+        outline: $outline-dark,
+    ),
+);
+
+@mixin themed() {
+    @each $theme, $map in $themes {
+        .theme--#{$theme} & {
+            $theme-map: () !global;
+            @each $key, $submap in $map {
+                $value: map-get(map-get($themes, $theme), '#{$key}');
+                $theme-map: map-merge(
+                    $theme-map,
+                    (
+                        $key: $value,
+                    )
+                ) !global;
+            }
+            @content;
+            $theme-map: null !global;
+        }
+    }
+}
+
+@function t($key) {
+    @return map-get($theme-map, $key);
+}

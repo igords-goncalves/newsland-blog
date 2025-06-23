@@ -1,9 +1,13 @@
+@import '../../theme.scss';
+
 .c-btn {
     position: fixed;
     border: none;
     top: 75%;
     right: 5%;
-    background-color: #ffffffbc;
+    @include themed() {
+        background-color: t($bg-secondary);
+    }
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -11,4 +15,10 @@
     backdrop-filter: blur(3px);
     box-shadow: rgba(45, 45, 45, 0.1) 0px 2px 4px,
         rgba(45, 45, 45, 0.1) 0px 2px 4px;
+}
+
+.top {
+    @include themed() {
+        color: t($outline);
+    }
 }

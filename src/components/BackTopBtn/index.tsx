@@ -1,5 +1,5 @@
 import * as motion from 'motion/react-client';
-import backTopBtn from '../../assets/img/back-top-btn.svg';
+import { ArrowBigUpDash } from 'lucide-react';
 import './style.scss';
 import { memo } from 'react';
 
@@ -12,11 +12,9 @@ const BackTopBtn = (): JSX.Element => {
             }
         >
             <motion.div whileHover={{ scale: 1.2 }} whileTap={{ scale: 0.8 }}>
-                <img
-                    className="c-btn__icon"
-                    src={backTopBtn}
-                    alt="Voltar ao tôpo"
-                />
+                <div className="c-btn__icon">
+                    <ArrowBigUpDash className="top" />
+                </div>
             </motion.div>
         </button>
     );

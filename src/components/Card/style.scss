@@ -1,34 +1,53 @@
-@import '../../global.variables.scss';
+@import '../../theme.scss';
 
 .c-card {
-    background-color: $color-text-dark;
     box-shadow: 0px 0px 10px rgba(19, 19, 31, 0.05);
     border-radius: 8px;
     padding: 26px;
     margin-top: 50px;
+    @include themed() {
+        background-color: t($bg-secondary);
+    }
 
     &:hover {
-        outline: 2px solid $blue-light-left;
+        outline-width: 2px;
+        outline-style: solid;
+        @include themed() {
+            outline-color: t($outline);
+        }
     }
 
     font-family: $font-family;
 
     .c-card__title {
         width: fit-content;
-        color: $color-text-light;
+        @include themed() {
+            color: t($text-primary);
+        }
         font-weight: 500;
         font-size: 1.2em;
         margin: 22px 0 16px 0;
         cursor: pointer;
 
         &:hover {
-            color: $blue-light-left;
+            @include themed() {
+                color: t($outline);
+            }
             text-decoration: underline;
         }
     }
-    .c-card__date,
+    .c-card__date {
+        @include themed() {
+            color: t($outline);
+        }
+        font-size: 1em;
+        text-align: justify;
+    }
+
     .c-card__text {
-        color: $color-text-light-secondary;
+        @include themed() {
+            color: t($text-secondary);
+        }
         font-size: 1em;
         text-align: justify;
     }
@@ -39,6 +58,7 @@
 
     .c-card__favorite {
         cursor: pointer;
+        fill: red;
     }
 }
 
@@ -46,7 +66,11 @@
     width: 65%;
     max-width: 1024px;
     max-height: 500px;
-    background-color: $color-text-dark;
+
+    @include themed() {
+        background-color: t($bg-secondary);
+    }
+
     position: fixed;
     top: 50%;
     left: 50%;
@@ -63,13 +87,17 @@
 
     &::-webkit-scrollbar-track {
         -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.103);
-        background-color: #f5f5f5;
+        @include themed() {
+            background-color: t($bg-secondary);
+        }
     }
     &::-webkit-scrollbar {
         width: 10px;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: #cfcfcf;
+        @include themed() {
+            background-color: t($border);
+        }
         border-radius: 8px;
     }
 
@@ -77,7 +105,9 @@
 
     .c-popup__title {
         width: fit-content;
-        color: $blue-light-left;
+        @include themed() {
+            color: t($outline);
+        }
         font-size: 1.6em;
         font-weight: 500;
         margin: 22px 0 30px 0;
@@ -92,10 +122,16 @@
     .c-popup__close {
         cursor: pointer;
         width: 12px;
+
+        @include themed() {
+            color: t($outline);
+        }
     }
 
     .c-popup__date {
-        color: $color-text-light-secondary;
+        @include themed() {
+            color: t($text-secondary);
+        }
         font-size: 1em;
 
         @media (max-width: 768px) {
@@ -107,7 +143,9 @@
     }
 
     .c-popup__text {
-        color: $color-text-light-secondary;
+        @include themed() {
+            color: t($text-secondary);
+        }
         font-size: 1.1em;
         font-weight: 400;
         line-height: 1.5;
@@ -125,8 +163,9 @@
         position: sticky;
         width: 100%;
         top: 0;
-        background-color: rgba($color-text-dark, 1);
-        backdrop-filter: blur(8px);
+        @include themed() {
+            background-color: t($bg-secondary);
+        }
         padding: 20px 0;
         z-index: 1;
         display: flex;
