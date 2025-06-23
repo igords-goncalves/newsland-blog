@@ -1,6 +1,4 @@
 import logo from '../../../assets/img/logo.svg';
-import lightMode from '../../../assets/img/light-mode.svg';
-import darktMode from '../../../assets/img/dark-mode.svg';
 
 import './style.scss';
 import { useContext } from 'react';
