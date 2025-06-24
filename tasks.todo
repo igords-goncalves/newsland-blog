@@ -31,6 +31,7 @@ Tasks:
             ✔ Salvar estado em localstorage; @done(25-06-23 18:53)
             ✔ Criar thema no Sass; @done(25-06-23 18:53)
         ☐ Implementar acessibilidade no blog; @low
+        ☐ Implementar responsividade no blog; @high
         ☐ Salvar favoritos em localstorage; @low
         ✔ Aplicar animações com `motion` nos cards de notícias; @done(25-06-11 09:21)
         ✔ Elminar lógica desnecessária de dentro dos componentes; @done(25-06-11 08:45)
