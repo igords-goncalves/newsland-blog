@@ -7,12 +7,15 @@
     height: 100%;
     margin-bottom: 100px;
 
+    background: inherit;
+
     @include themed() {
         background: t($bg);
     }
 
     .c-main__container {
         margin-top: 25px;
+        background-color: transparent;
     }
 }
 
