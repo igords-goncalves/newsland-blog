@@ -13,14 +13,14 @@ describe('Visiting page', () => {
 
     it('Should render the news with date, title and description in a card', () => {
         cy.visit('/');
-        cy.get('[ data-testid="news-date"]').should('exist');
-        cy.get('[ data-testid="news-title"]').should('exist');
-        cy.get('[ data-testid="news-description"]').should('exist');
+        cy.get('[data-testid="news-date"]').should('exist');
+        cy.get('[data-testid="news-title"]').should('exist');
+        cy.get('[data-testid="news-description"]').should('exist');
     });
 });
 
 describe('Homepage', () => {
-    it('Should reder the news with date, title and description coming from request', () => {
+    it('Should render news with date, title and description coming from request', () => {
         stubLatestNews(sampleResults);
         cy.visit('/');
         cy.wait('@getLatestNews');

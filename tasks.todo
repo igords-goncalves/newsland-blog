@@ -28,10 +28,10 @@ Tasks:
         ☐ Inserir Amplitude Analytics na aplicação;
         ☐ Configurar fallbacks e tratamentos de erros no amplitude;
         ☐ Configurar usuários fakes para simular trafego no site
-            ☐ Tentar configurar com IA com pepetaer ou manualmente;
+            ☐ Tentar configurar com IA com puppeteer ou manualmente;
         ☐ Aplicar teste e2e e unitários as features de web analytics;
     Refactoring:
-    Melhorias gerais de código e desing da página.''
+    Melhorias gerais de código e design da página.
         ✔ Melhorar tamanho de fonte e do modal de noticias; @done(25-06-10 21:05)
         ✔ Melhor design geral da página; @high @done(25-06-10 21:32)
         ✔ Melhorar mecanismo busca rápida com `fuse.js`; @done(25-06-11 08:32)
