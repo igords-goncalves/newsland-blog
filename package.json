@@ -47,6 +47,6 @@
     "author": "Igor Gonçalves <igordossantos38@gmail.com>",
     "license": "MIT",
     "engines": {
-        "node": "18.20.3"
+        "node": "23.10.0"
     }
 }
