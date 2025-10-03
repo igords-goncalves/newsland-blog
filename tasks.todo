@@ -9,18 +9,29 @@ Tasks:
         ✔ Verificar o dataLayer de acordo com tipo de dispositivo do usuário; @done(24-12-04 00:06)
         ✔ Criar conta no google tag manager; @done(24-12-04 08:56)
         ✔ Adicionar o google tag manager; @done(24-12-04 08:56)
+
     Configurações:
         ✔ Criar variáveis para coleta de dados; @critical @started(24-12-04 08:57) @done(24-12-04 09:37) @lasted(40m47s)
         ✔ Criar acionadores que vão disparar tags; @started(24-12-04 08:58) @done(24-12-04 09:37) @lasted(39m49s)
         ✔ Criar tags com ações especificas; @started(24-12-04 08:58) @done(24-12-04 09:37) @lasted(39m55s)
         ✔ Criar parâmetros de acordo com objetivo do projeto; @started(24-12-04 09:37) @done(24-12-04 10:17) @lasted(40m42s)
         ✔ Quando a noticia abrir disparar tags; @started(24-12-04 09:38) @done(24-12-04 10:17) @lasted(39m43s)
-    Google Analytics:
+        ☐ Configurar um deploy de desenvolvimento no Vercel;
+        ☐ Tag de ambiente de desenvolvimento;
+        ☐ Configurar pipeline com branch dinâmica ou preview como ambiente de validação;
+        ☐ Configurar tag de ambiente de validação;
+
+    Analytics:
         ☐ Configurar e revisar configuração do GA Google Analytics;
         ☐ Criar conexão e revisar GTM Google Tag Manager;
-
+        ☐ Lembrar de desabilitar o bloqueador de anúncio; @critical
+        ☐ Inserir Amplitude Analytics na aplicação;
+        ☐ Configurar fallbacks e tratamentos de erros no amplitude;
+        ☐ Configurar usuários fakes para simular trafego no site
+            ☐ Tentar configurar com IA com pepetaer ou manualmente;
+        ☐ Aplicar teste e2e e unitários as features de web analytics;
     Refactoring:
-    Melhorias gerais de código e desing da página.
+    Melhorias gerais de código e desing da página.''
         ✔ Melhorar tamanho de fonte e do modal de noticias; @done(25-06-10 21:05)
         ✔ Melhor design geral da página; @high @done(25-06-10 21:32)
         ✔ Melhorar mecanismo busca rápida com `fuse.js`; @done(25-06-11 08:32)
@@ -30,13 +41,10 @@ Tasks:
             ✔ Cria contexto para salvar estado do dark mode; @done(25-06-23 18:53)
             ✔ Salvar estado em localstorage; @done(25-06-23 18:53)
             ✔ Criar thema no Sass; @done(25-06-23 18:53)
-        ☐ Implementar acessibilidade no blog; @low
-        ☐ Implementar responsividade no blog; @high
-        ☐ Salvar favoritos em localstorage; @low
+            ✔ Configurar estados e mudanças no darkmode global; @done(25-09-20 18:42)
         ✔ Aplicar animações com `motion` nos cards de notícias; @done(25-06-11 09:21)
         ✔ Elminar lógica desnecessária de dentro dos componentes; @done(25-06-11 08:45)
         ✔ Elminiar uso do redux e substituir por `contextApi`/`zustand`; @done(25-06-14 15:59)
-;
 
     API integrations:
         ✔ Melhorar estrutura de pastas; @done(25-06-11 13:49)
@@ -48,13 +56,18 @@ Tasks:
         ✘ Implementar Suspense com interface de fallback; @high @cancelled(25-06-14 13:32)
         ✘ Verificar necessiadede de implementar o Lazyload; @high @cancelled(25-06-14 13:32)
         ✔ Implementar estado de loagin; @done(25-06-14 13:32)
-        ☐ Implementar sistema de paginação/scroll infinito; @high
+        ✘ Implementar sistema de paginação/scroll infinito; @high @cancelled(25-10-02 21:34)
+            * Ou como alternativa implementar com um botão carregar;
         ✔ Corrigir bug de re-render do componente de input; @critical @done(25-06-14 12:34)
 
     Testar Aplicação:
         ☐ Testar aplicação com cypress;
-        ☐ Criar pipeline;
+        ☐ Criar testes unitários;
+        ☐ Criar pipeline no github action;
 
     Qualidade:
         ☐ Aplicar o core web vitals;
-        ☐ Aplicar test A/B
+        ✘ Aplicar test A/B @cancelled(25-10-02 21:34)
+        ☐ Implementar acessibilidade no blog; @low
+        ☐ Implementar responsividade no blog; @high
+        ☐ Salvar favoritos em localstorage; @low
