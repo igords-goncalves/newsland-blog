@@ -17,7 +17,8 @@
         // Observer para mudanças no localStorage (para sync entre abas)
         window.addEventListener('storage', function (e) {
             if (e.key === 'theme') {
-                document.documentElement.setAttribute('data-theme', e.newValue);
+                var nextTheme = e.newValue || (prefersDark ? 'dark' : 'light');
+                document.documentElement.setAttribute('data-theme', nextTheme);
             }
         });
     } catch (e) {

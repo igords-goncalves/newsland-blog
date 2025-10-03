@@ -6,6 +6,9 @@ describe('Visiting page', () => {
 
     it('Should render the news cards on page', () => {
         cy.visit('/');
+        stubLatestNews(sampleResults);
+        cy.visit('/');
+        cy.wait('@getLatestNews');
         cy.get('.c-card').should('exist');
         cy.get('.c-card').should('be.visible');
         cy.get('.c-card').should('have.length.greaterThan', 0);
