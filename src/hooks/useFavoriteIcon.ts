@@ -1,11 +1,10 @@
 import { useState } from 'react';
 
-export const useFavoriteIcon = (favorite: any, favoriteToggled: any) => {
-    const [isFavorite, setIsFavorite] = useState(favorite);
+export const useFavoriteIcon = () => {
+    const [isFavorite, setIsFavorite] = useState(false);
 
-    const handleFavoriteIcon = (): string => {
-        setIsFavorite(isFavorite === favorite ? favoriteToggled : favorite);
-        return isFavorite;
+    const handleFavoriteIcon = (): void => {
+        !isFavorite ? setIsFavorite(true) : setIsFavorite(false);
     };
 
     return { isFavorite, handleFavoriteIcon };

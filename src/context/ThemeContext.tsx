@@ -19,6 +19,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
+
+        if (typeof window !== 'undefined' && window.updateTheme) {
+            window.updateTheme(newTheme);
+        }
     };
 
     return (

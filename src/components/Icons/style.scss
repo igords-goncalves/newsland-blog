@@ -10,8 +10,10 @@
     transition: all 0.2s ease-in-out;
 
     &.favorited {
-        fill: #e07b67;
-        stroke: #e07b67;
+        @include themed() {
+            fill: t($outline);
+            stroke: t($outline);
+        }
         transform: scale(1.1);
     }
 
