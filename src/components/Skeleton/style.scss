@@ -5,8 +5,8 @@
     border-radius: 8px;
     padding: 26px;
     margin-top: 50px;
-    height: 250px;
+    height: 200px;
     @include themed() {
-        background-color: t($bg-secondary);
+        background-color: t($bg-skeleton);
     }
 }
