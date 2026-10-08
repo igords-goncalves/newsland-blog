@@ -9,12 +9,13 @@
         <script src="/src/scripts/theme.js"></script>
         <script src="/src/scripts/gtm.js"></script>
 
-        <script src="https://cdn.amplitude.com/script/9880e9616f37cc3f85baf4600ce4f4c3.js"></script>
+        <!-- Used by SDK exclusively -->
+        <!-- <script src="https://cdn.amplitude.com/script/9880e9616f37cc3f85baf4600ce4f4c3.js"></script>
         <script>
             window.amplitude.add(
                 window.sessionReplay.plugin({ sampleRate: 1 }),
             );
-            window.amplitude.init('9880e9616f37cc3f85baf4600ce4f4c3', {
+            window.amplitude.init(process.env.AMPLITUDE_API_KEY || '', {
                 fetchRemoteConfig: true,
                 autocapture: {
                     attribution: true,
@@ -29,19 +30,22 @@
             });
 
             amplitude.track('Loaded');
-        </script>
+        </script> -->
     </head>
 
     <body>
+        <!-- Google Tag Manager (noscript) caso o JavaScript esteja desabilitado -->
         <!-- Google Tag Manager (noscript) -->
         <noscript
             ><iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-MNJHHSRC"
+                src="https://www.googletagmanager.com/ns.html?id=GTM-MNJHHSRC&gtm_auth=PktvHXX5HB2M6CbsagTEGg&gtm_preview=env-10&gtm_cookies_win=x"
                 height="0"
                 width="0"
                 style="display: none; visibility: hidden"
             ></iframe
         ></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+
         <div id="root"></div>
         <script type="module" src="/src/main.tsx"></script>
     </body>

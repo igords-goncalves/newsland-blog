@@ -4,7 +4,7 @@ Fluxo do usuário em @url:https://whimsical.com/newsland-blog-AbNgWjrncLdSbKWaxe
 Tasks:
     Google:
     Decida o que é importante enviar para o data layer.
-        ✔ Capturar o evento/ação e enviar para o data layer; @critical @done(24-12-03 23:34)
+        ✔ Capturar o evento/ação e enviar para o data layer; @crit ical @done(24-12-03 23:34)
         ✔ Implementar o dataLayer; @critical @done(24-12-03 23:34)
         ✔ Verificar o dataLayer de acordo com tipo de dispositivo do usuário; @done(24-12-04 00:06)
         ✔ Criar conta no google tag manager; @done(24-12-04 08:56)
@@ -26,6 +26,7 @@ Tasks:
         ☐ Criar conexão e revisar GTM Google Tag Manager;
         ☐ Lembrar de desabilitar o bloqueador de anúncio; @critical
         ☐ Inserir Amplitude Analytics na aplicação;
+        ☐ Configurar eventos e propriedades no Amplitude;
         ☐ Configurar fallbacks e tratamentos de erros no amplitude;
         ☐ Configurar usuários fakes para simular trafego no site
             ☐ Tentar configurar com IA com puppeteer ou manualmente;

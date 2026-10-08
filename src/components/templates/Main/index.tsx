@@ -13,7 +13,6 @@ import { SearchContext } from '../../../context/SearchContext';
 export const Main = (): JSX.Element => {
     const { news, isLoading, isError } = useFetchNews();
     const { searchTerm } = useContext(SearchContext);
-
     const { isFiltered } = useFuse(searchTerm, news);
 
     if (isError) {
@@ -50,15 +49,7 @@ export const Main = (): JSX.Element => {
                             transition={{ duration: 0.7 }}
                             viewport={{ once: true, margin: '-100px' }}
                         >
-                            <Card
-                                date={news.pubDate}
-                                title={news.title}
-                                description={
-                                    news.description ||
-                                    'Sem descrição disponível'
-                                }
-                                post={news.content}
-                            />
+                            <Card news={news} />
                         </motion.div>
                     ))
                 ) : (
