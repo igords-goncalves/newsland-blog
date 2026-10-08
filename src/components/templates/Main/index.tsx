@@ -13,7 +13,6 @@ import { SearchContext } from '../../../context/SearchContext';
 export const Main = (): JSX.Element => {
     const { news, isLoading, isError } = useFetchNews();
     const { searchTerm } = useContext(SearchContext);
-
     const { isFiltered } = useFuse(searchTerm, news);
 
     if (isError) {
@@ -41,24 +40,23 @@ export const Main = (): JSX.Element => {
     return (
         <main className="c-main">
             <div className="u-container c-main__container">
-                {isFiltered.map((news: Article) => (
-                    <motion.div
-                        key={news.article_id}
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.7 }}
-                        viewport={{ once: true, margin: '-100px' }}
-                    >
-                        <Card
-                            date={news.pubDate}
-                            title={news.title}
-                            description={
-                                news.description || 'Sem descrição disponível'
-                            }
-                            post={news.content}
-                        />
-                    </motion.div>
-                ))}
+                {isFiltered.length > 0 ? (
+                    isFiltered.map((news: Article) => (
+                        <motion.div
+                            key={news.article_id}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.7 }}
+                            viewport={{ once: true, margin: '-100px' }}
+                        >
+                            <Card news={news} />
+                        </motion.div>
+                    ))
+                ) : (
+                    <p data-testid="no-news-message" className="c-main_error">
+                        Nenhuma notícia disponível
+                    </p>
+                )}
             </div>
             <BackTopBtn />
         </main>

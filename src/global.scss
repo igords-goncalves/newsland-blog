@@ -1,3 +1,16 @@
+html {
+    background: #f3f5f7;
+    color: #1a202c;
+}
+html[data-theme='dark'] {
+    background: #121214;
+    color: #ffffff;
+}
+
+body {
+    background: transparent;
+}
+
 .u-container {
     width: 100%;
     max-width: 900px;

@@ -6,13 +6,16 @@
         <link rel="icon" href="./src/assets/img/logo.svg" />
         <title>Newsland Blog</title>
 
-        <!-- Amplitude -->
-        <script src="https://cdn.amplitude.com/script/9880e9616f37cc3f85baf4600ce4f4c3.js"></script>
+        <script src="/src/scripts/theme.js"></script>
+        <script src="/src/scripts/gtm.js"></script>
+
+        <!-- Used by SDK exclusively -->
+        <!-- <script src="https://cdn.amplitude.com/script/9880e9616f37cc3f85baf4600ce4f4c3.js"></script>
         <script>
             window.amplitude.add(
                 window.sessionReplay.plugin({ sampleRate: 1 }),
             );
-            window.amplitude.init('9880e9616f37cc3f85baf4600ce4f4c3', {
+            window.amplitude.init(process.env.AMPLITUDE_API_KEY || '', {
                 fetchRemoteConfig: true,
                 autocapture: {
                     attribution: true,
@@ -27,65 +30,22 @@
             });
 
             amplitude.track('Loaded');
-        </script>
-
-        <!-- Gerenciamento de dark mode -->
-        <script>
-            (function () {
-                try {
-                    var saved = localStorage.getItem('theme'); // ajuste a chave se usar outra
-                    var prefersDark =
-                        window.matchMedia &&
-                        window.matchMedia('(prefers-color-scheme: dark)')
-                            .matches;
-                    var theme = saved || (prefersDark ? 'dark' : 'light');
-                    document.documentElement.setAttribute('data-theme', theme);
-                } catch (e) {}
-            })();
-        </script>
-
-        <style>
-            html {
-                background: #ffffff;
-                color: #111111;
-            }
-            html[data-theme='dark'] {
-                background: #0f0f0f;
-                color: #eeeeee;
-            }
-            body {
-                background: transparent;
-            }
-        </style>
-        <!-- Google Tag Manager -->
-        <script>
-            (function (w, d, s, l, i) {
-                w[l] = w[l] || [];
-                w[l].push({
-                    'gtm.start': new Date().getTime(),
-                    event: 'gtm.js',
-                });
-                var f = d.getElementsByTagName(s)[0],
-                    j = d.createElement(s),
-                    dl = l != 'dataLayer' ? '&l=' + l : '';
-                j.async = true;
-                j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-                f.parentNode.insertBefore(j, f);
-            })(window, document, 'script', 'dataLayer', 'GTM-MNJHHSRC');
-        </script>
-        <!-- End Google Tag Manager -->
+        </script> -->
     </head>
+
     <body>
+        <!-- Google Tag Manager (noscript) caso o JavaScript esteja desabilitado -->
         <!-- Google Tag Manager (noscript) -->
         <noscript
             ><iframe
-                src="https://www.googletagmanager.com/ns.html?id=GTM-MNJHHSRC"
+                src="https://www.googletagmanager.com/ns.html?id=GTM-MNJHHSRC&gtm_auth=PktvHXX5HB2M6CbsagTEGg&gtm_preview=env-10&gtm_cookies_win=x"
                 height="0"
                 width="0"
                 style="display: none; visibility: hidden"
             ></iframe
         ></noscript>
         <!-- End Google Tag Manager (noscript) -->
+
         <div id="root"></div>
         <script type="module" src="/src/main.tsx"></script>
     </body>

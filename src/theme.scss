@@ -5,6 +5,7 @@
 $bg: 'bg';
 $bg-secondary: 'bg-secondary';
 $text-primary: 'text-primary';
+$bg-skeleton: 'bg-skeleton';
 $text-secondary: 'text-secondary';
 $bg-input: 'bg-input';
 $border: 'border';
@@ -15,6 +16,7 @@ $themes: (
         bg: $bg-light,
         text-primary: $text-light,
         text-secondary: $paragraph-light,
+        bg-skeleton: $skeleton-light,
         bg-secondary: $bg-secondary-light,
         bg-input: $bg-input-light,
         border: $border-light,
@@ -25,6 +27,7 @@ $themes: (
         text-primary: $text-dark,
         text-secondary: $paragraph-dark,
         bg-secondary: $bg-secondary-dark,
+        bg-skeleton: $skeleton-dark,
         bg-input: $bg-input-dark,
         border: $border-dark,
         outline: $outline-dark,
