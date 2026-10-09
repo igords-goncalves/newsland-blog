@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from 'react';
+import { createContext } from 'react';
 
 interface ThemeContextType {
     theme: string | null;
@@ -11,23 +11,3 @@ export const ThemeContext = createContext<ThemeContextType>({
     setTheme: () => {},
     toggleTheme: () => {},
 });
-
-export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState(localStorage.getItem('theme'));
-
-    const toggleTheme = () => {
-        const newTheme = theme === 'light' ? 'dark' : 'light';
-        setTheme(newTheme);
-        localStorage.setItem('theme', newTheme);
-
-        if (typeof window !== 'undefined' && window.updateTheme) {
-            window.updateTheme(newTheme);
-        }
-    };
-
-    return (
-        <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
-            {children}
-        </ThemeContext.Provider>
-    );
-};

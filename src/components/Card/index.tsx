@@ -19,7 +19,7 @@ const Card: React.FC<CardProps> = ({ news }) => {
                 <p data-testid="news-date" className="c-card__date">
                     {parseDate(news.pubDate)}
                 </p>
-                <Heart />
+                <Heart news={news} />
             </header>
             <h2
                 data-testid="news-title"

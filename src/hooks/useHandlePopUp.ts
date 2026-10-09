@@ -1,9 +1,8 @@
 import { useState } from 'react';
-import { handleDataLayerIntro } from '../utils/handleDataLayerIntro';
-import * as amplitude from '@amplitude/analytics-browser';
 import { Article } from '../types/article';
-
-amplitude.init(process.env.AMPLITUDE_API_KEY || '');
+import { sendToAmplitude } from '../analytics/integrations/amplitude';
+import { pushEvent } from '../analytics/dataLayer/dataLayer';
+import { AnalyticsEvent } from '../analytics/contracts';
 
 export const useHandlePopUp = (news: Article) => {
     const [isActive, setIsActive] = useState(false);
@@ -11,16 +10,19 @@ export const useHandlePopUp = (news: Article) => {
     const onOpenPopUp = () => {
         document.body.style.overflow = 'hidden';
 
-        // Tracking by Google` Tag Manager
-        handleDataLayerIntro('click_link', 'click', news.title);
+        const event = {
+            event: 'article_viewed',
+            properties: {
+                article_title: news.title,
+                article_id: news.article_id,
+                article_category: news.category,
+                article_source: news.source_name,
+                article_source_url: news.source_url,
+            },
+        } as AnalyticsEvent;
 
-        // Tracking by Amplitude
-        amplitude.track('News opened', {
-            pubDate: news.pubDate,
-            country: news.country,
-            category: news.category,
-            creator: news.creator || 'Unknown creator',
-        });
+        pushEvent(event);
+        sendToAmplitude(event);
 
         return setIsActive(true);
     };

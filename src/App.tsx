@@ -1,14 +1,17 @@
 import { SearchProvider } from './context/SearchProvider';
-import { ThemeProvider } from './context/ThemeContext';
+import { ThemeProvider } from './context/ThemeProvider';
 import { Home } from './pages/Home';
+import { AmplitudeProvider } from './context/AmplitudeProvider';
 
 function App() {
     return (
-        <SearchProvider>
-            <ThemeProvider>
-                <Home />
-            </ThemeProvider>
-        </SearchProvider>
+        <AmplitudeProvider>
+            <SearchProvider>
+                <ThemeProvider>
+                    <Home />
+                </ThemeProvider>
+            </SearchProvider>
+        </AmplitudeProvider>
     );
 }
 

@@ -1,27 +1,25 @@
 import { useState } from 'react';
 import { handleDataLayerIntro } from '../utils/handleDataLayerIntro';
 import * as amplitude from '@amplitude/analytics-browser';
+import { sendToAmplitude } from '../analytics/integrations/amplitude';
+import { Article } from '../types/article';
+import { AnalyticsEvent } from '../analytics/contracts';
+import { pushEvent } from '../analytics/dataLayer/dataLayer';
 
-export const useFavoriteIcon = () => {
+export const useFavoriteIcon = (news: Article) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
-    const handleFavoriteIcon = (): void => {
-        // Tracking by Google Tag Manager
-        handleDataLayerIntro(
-            'click_link',
-            'click',
-            isFavorite ? 'removed_favorite' : 'added_favorite',
-        );
+    const event = {
+        event: !isFavorite ? 'article_favorited' : 'article_unfavorited',
+        properties: {
+            article_id: news.article_id,
+            article_title: news.title,
+        },
+    } as AnalyticsEvent;
 
-        // Tracking by Amplitude
-        amplitude.track(
-            isFavorite
-                ? 'News removed from favorites'
-                : 'News added to favorites',
-            {
-                favorited: !isFavorite,
-            },
-        );
+    const handleFavoriteIcon = (): void => {
+        pushEvent(event);
+        sendToAmplitude(event);
 
         !isFavorite ? setIsFavorite(true) : setIsFavorite(false);
     };

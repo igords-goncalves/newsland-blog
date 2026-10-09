@@ -1,14 +1,16 @@
 import { useFavoriteIcon } from '../../hooks/useFavoriteIcon';
+import { Article } from '../../types/article';
 import './style.scss';
 
 interface HeartProps {
     className?: string;
     onClick?: () => void;
     isFavorited?: boolean;
+    news: Article;
 }
 
-export const Heart = ({ className }: HeartProps): JSX.Element => {
-    const { handleFavoriteIcon, isFavorite } = useFavoriteIcon();
+export const Heart = ({ className, news }: HeartProps): JSX.Element => {
+    const { handleFavoriteIcon, isFavorite } = useFavoriteIcon(news);
 
     return (
         <svg
