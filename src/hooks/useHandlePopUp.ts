@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Article } from '../types/article';
-import { sendToAmplitude } from '../analytics/integrations/amplitude';
-import { pushEvent } from '../analytics/dataLayer/dataLayer';
-import { AnalyticsEvent } from '../analytics/contracts';
+import { sendToAmplitude } from '../analytics/integrations/amplitude/amplitudeAdapter';
+import { pushEvent } from '../analytics/integrations/gtm/dataLayer';
+import { ArticleViewedEvent } from '../analytics/contracts/article';
 
 export const useHandlePopUp = (news: Article) => {
     const [isActive, setIsActive] = useState(false);
@@ -10,7 +10,7 @@ export const useHandlePopUp = (news: Article) => {
     const onOpenPopUp = () => {
         document.body.style.overflow = 'hidden';
 
-        const event = {
+        const event: ArticleViewedEvent = {
             event: 'article_viewed',
             properties: {
                 article_title: news.title,
@@ -19,7 +19,7 @@ export const useHandlePopUp = (news: Article) => {
                 article_source: news.source_name,
                 article_source_url: news.source_url,
             },
-        } as AnalyticsEvent;
+        };
 
         pushEvent(event);
         sendToAmplitude(event);

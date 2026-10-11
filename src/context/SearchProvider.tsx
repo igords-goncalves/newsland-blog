@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 
 import { SearchContext } from './SearchContext';
-import { sendToAmplitude } from '../analytics/integrations/amplitude';
-import { AnalyticsEvent } from '../analytics/contracts';
-import { pushEvent } from '../analytics/dataLayer/dataLayer';
+import { sendToAmplitude } from '../analytics/integrations/amplitude/amplitudeAdapter';
+import { pushEvent } from '../analytics/integrations/gtm/dataLayer';
+import { SearchPerformedEvent } from '../analytics/contracts/search';
 
 export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -13,12 +13,13 @@ export const SearchProvider = ({ children }: { children: React.ReactNode }) => {
             return;
         }
 
-        const event = {
-            event: 'article_searched',
+        const event: SearchPerformedEvent = {
+            event: 'search_performed',
             properties: {
-                term_searched: searchTerm,
+                search_term: searchTerm,
+                results_count: 0,
             },
-        } as AnalyticsEvent;
+        };
 
         const timeout = setTimeout(() => {
             sendToAmplitude(event);

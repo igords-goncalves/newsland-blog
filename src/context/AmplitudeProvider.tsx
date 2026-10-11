@@ -1,30 +1,33 @@
 import React, { useEffect } from 'react';
-import * as amplitude from '@amplitude/analytics-browser';
+import { markAmplitudeReady } from '../analytics/core/track.js';
+import { initAmplitude } from '../analytics/integrations/amplitude/amplitudeClient.js';
 
 interface AmplitudeProviderProps {
     children: React.ReactNode;
 }
 
 export function AmplitudeProvider({ children }: AmplitudeProviderProps) {
-    const apiKey = process.env.AMPLITUDE_API_KEY || '';
-
     useEffect(() => {
-        if (!apiKey) return;
+        let active = true;
 
-        amplitude.init(apiKey, {
-            autocapture: {
-                attribution: false,
-                fileDownloads: false,
-                formInteractions: false,
-                pageViews: false,
-                sessions: false,
-                elementInteractions: false,
-                networkTracking: false,
-                webVitals: false,
-                frustrationInteractions: false,
-            },
-        });
-    }, [apiKey]);
+        async function initialize() {
+            try {
+                await initAmplitude();
+
+                if (active) {
+                    markAmplitudeReady();
+                }
+            } catch (error) {
+                console.error('Error initializing Amplitude:', error);
+            }
+        }
+
+        void initialize();
+
+        return () => {
+            active = false;
+        };
+    }, []);
 
     return <>{children}</>;
 }

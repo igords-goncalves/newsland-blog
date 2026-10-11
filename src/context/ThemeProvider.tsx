@@ -1,27 +1,28 @@
 import { ReactNode, useState } from 'react';
-import { ThemeContext } from './ThemeContext';
-import { sendToAmplitude } from '../analytics/integrations/amplitude';
-import { AnalyticsEvent } from '../analytics/contracts';
-import { pushEvent } from '../analytics/dataLayer/dataLayer';
+import { Theme, ThemeContext } from './ThemeContext';
+import { track } from '../analytics/core/track';
+import { ThemeSwitchedEvent } from '../analytics/contracts/theme';
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-    const [theme, setTheme] = useState<any>(localStorage.getItem('theme'));
+    const [theme, setTheme] = useState<Theme>(() =>
+        localStorage.getItem('theme') === 'dark' ? 'dark' : 'light',
+    );
 
     const toggleTheme = () => {
         const newTheme = theme === 'light' ? 'dark' : 'light';
         setTheme(newTheme);
         localStorage.setItem('theme', newTheme);
 
-        const event = {
+        const event: ThemeSwitchedEvent = {
             event: 'theme_switched',
             properties: {
                 theme: newTheme,
             },
-        } as AnalyticsEvent;
+        };
 
-        sendToAmplitude(event);
-        pushEvent(event);
+        track(event);
 
+        //? Qual foi o propósito de adicionar essa função global? Para que ela é usada? --- IGNORE ---
         if (typeof window !== 'undefined' && window.updateTheme) {
             window.updateTheme(newTheme);
         }
