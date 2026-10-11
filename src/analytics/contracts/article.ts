@@ -4,7 +4,6 @@ type ArticleEventProperties = {
     article_category?: string[];
     article_source?: string;
     article_source_url?: string;
-    term_searched?: string;
 };
 
 export type ArticleViewedEvent = {
