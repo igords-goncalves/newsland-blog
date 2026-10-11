@@ -3,27 +3,26 @@ import { Grid } from '../../components/layouts/Grid';
 import { Header } from '../../components/templates/Header';
 import { Main } from '../../components/templates/Main';
 import { ThemeContext } from '../../context/ThemeContext';
-import { sendToAmplitude } from '../../analytics/integrations/amplitude';
-import { pushEvent } from '../../analytics/dataLayer/dataLayer';
-import { AnalyticsEvent } from '../../analytics/contracts';
+import { track } from '../../analytics/core/track';
+import { PageViewedEvent } from '../../analytics/contracts/page';
 
 export function Home() {
     const { theme } = useContext(ThemeContext);
 
     useEffect(() => {
-        const event = {
+        // Event bulit in agree with the component necessities and following a minimal contract
+        const event: PageViewedEvent = {
             event: 'page_viewed',
             properties: {
                 page_title: document.title,
                 page_url: window.location.href,
                 page_path: window.location.pathname,
                 page_domain: window.location.hostname,
-                page_referer: window.location.origin,
+                page_referer: document.referrer,
             },
-        } as AnalyticsEvent;
+        };
 
-        pushEvent(event);
-        sendToAmplitude(event);
+        track(event);
     }, []);
 
     return (

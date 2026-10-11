@@ -1,6 +1,6 @@
 declare global {
     interface Window {
-        updateTheme: (theme: string) => void;
+        updateTheme: (theme: Theme) => void;
     }
 }
 
